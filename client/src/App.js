@@ -22,8 +22,8 @@ const stateMachine = {
 const reducer = (state, event) =>
 	stateMachine.states[state].on[event] || stateMachine.initial;
 
-const formatResult = ({ className, probability }) => (
-	<li key={className}>{`${className}: %${(probability * 100).toFixed(2)}`}</li>
+const formatResult = ({ name, probability }) => (
+	<li key={name}>{`${name}: %${(probability * 100).toFixed(2)}`}</li>
 );
 
 function App() {
@@ -80,7 +80,7 @@ function App() {
 
 	const buttonProps = {
 		initial: { text: 'Load Mode', action: loadModel },
-		loadingModel: { text: 'Loading Model...' },
+		loadingModel: { text: 'Loading...' },
 		awaitingUpload: { text: 'Upload Photo', action: upload },
 		ready: { text: 'Identify', action: identify },
 		classifying: { text: 'Identifying' },
